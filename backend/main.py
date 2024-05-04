@@ -13,6 +13,7 @@ api = Flask(
 )
 
 BIGQUERY_OBJECT = BigQueryConnector(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
+HERE = os.path.dirname(__file__)
 
 
 @api.route("/")
@@ -26,7 +27,7 @@ def serve():
 
 @api.route("/get_all_runs")
 def get_all_runs():
-    ALL_RUNS = "./sql/workflows_all_runs.sql"
+    ALL_RUNS = os.path.join(HERE, "sql/workflows_all_runs.sql")
     resp = run_sql(file_path=ALL_RUNS, kbq=BIGQUERY_OBJECT)
 
     return jsonify(resp.to_dicts())
@@ -34,7 +35,7 @@ def get_all_runs():
 
 @api.route("/get_run_percentage")
 def get_run_percentage():
-    ALL_RUNS = "./sql/workflows_percentage.sql"
+    ALL_RUNS = os.path.join(HERE, "sql/workflows_percentage.sql")
     resp = run_sql(file_path=ALL_RUNS, kbq=BIGQUERY_OBJECT)
 
     return jsonify(resp.to_dicts())
@@ -42,7 +43,7 @@ def get_run_percentage():
 
 @api.route("/get_run_summary")
 def get_run_summary():
-    ALL_RUNS = "./sql/workflows_summary.sql"
+    ALL_RUNS = os.path.join("sql/workflows_summary.sql")
     resp = run_sql(file_path=ALL_RUNS, kbq=BIGQUERY_OBJECT)
 
     return jsonify(resp.to_dicts())

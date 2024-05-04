@@ -38,7 +38,7 @@ WITH
         
         parent_workflow_id,
         parent_workflow_name,
-        ARRAY_AGG(LOWER(name)) AS failed_tasks
+        STRING_AGG(LOWER(name), ', ') AS failed_tasks
     
     FROM `raw_internal_monitoring.civis_production_sync_ins`
     WHERE category = 'task'

@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+.tmc_container {
+  padding: 2%;
+}
+
 .runStatusTable {
   margin: auto;
   width: 70%;

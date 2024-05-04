@@ -11,7 +11,7 @@ function Table() {
                         data => setFlows(data)
                     )
             )
-        }
+        }, []
     )
 
     const setRunStatusEmoji = (value) => {

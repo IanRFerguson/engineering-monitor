@@ -1,20 +1,19 @@
 import '../static/App.css';
+import Metadata from './Metadata.js';
 import Table from "./Table.js"
 import SuccessChart from "./SuccessChart.js";
 
 function App() {
   return (
     <div className="App">
-      <h1>TMC Sync-In Monitor</h1>
-      
-      {/* Show success rate over time */}
-      <div class="tmc__success_rate">
-        < Table />
+      <div class="tmc_container">
+        <h1>TMC Sync-In Monitor</h1>
+        <Metadata />
       </div>
       
-      {/* All tasks from most recent run */}
-      <div class="tmc__most_recent_run">
-        < SuccessChart />
+      {/* Show success rate over time */}
+      <div class="tmc_container">
+        < Table />
       </div>
     </div>
   );

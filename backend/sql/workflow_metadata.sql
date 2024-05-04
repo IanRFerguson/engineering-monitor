@@ -9,6 +9,7 @@ WITH
         FROM `raw_internal_monitoring.civis_production_sync_ins`
         WHERE category = 'workflow'
             AND lower(parent_workflow_name) LIKE '%prod%'
+            AND datetime_diff(runtime_started_at, current_datetime(), DAY) <= 7
         GROUP BY 1,2
     ),
 
@@ -34,11 +35,25 @@ WITH
         FROM agg
         GROUP BY 1
         ORDER BY 1 ASC
+    ),
+
+    avg_ AS (
+      SELECT
+
+        ROUND(AVG(total_successful_runs / total_runs), 2) AS success_rate
+      
+      FROM summary
     )
 
 SELECT
 
-    day_run,
-    ROUND(total_successful_runs / total_runs) AS successful_run_percentage
+  success_rate,
+  last_updated
 
-FROM summary
+FROM avg_
+JOIN (
+    SELECT 
+    
+        MAX(runtime_started_at) AS last_updated 
+        
+    FROM `raw_internal_monitoring.civis_production_sync_ins`) ON true

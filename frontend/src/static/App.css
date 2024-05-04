@@ -28,35 +28,13 @@
   color: #61dafb;
 }
 
-#teamChart {
-  height: calc(100vh - 50px);
+.runStatusTable {
+  margin: auto;
+  width: 70%;
+  padding: 2% 0;
+  text-align: center;
 }
 
-/* Tooltip */
-rect {
-  pointer-events: all;
-  fill-opacity: 0;
-  stroke-opacity: 0;
-  z-index: 0;
-}
-
-.tooltip {
-  position: absolute;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-  opacity: .75;
-}
-
-.ppg_circle:hover {
-  fill: black;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* .resultTableRow th {
+  width: 1%;
+} */

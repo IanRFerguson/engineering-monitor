@@ -25,6 +25,14 @@ def serve():
     return render_template("index.html")
 
 
+@api.route("/current_status")
+def current_status():
+    CURRENT_STATUS = os.path.join(HERE, "sql/workflows_current_status.sql")
+    resp = run_sql(file_path=CURRENT_STATUS, kbq=BIGQUERY_OBJECT)
+
+    return jsonify(resp.to_dicts())
+
+
 @api.route("/get_all_runs")
 def get_all_runs():
     ALL_RUNS = os.path.join(HERE, "sql/workflows_all_runs.sql")

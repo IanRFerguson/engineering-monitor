@@ -28,11 +28,17 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tmc_container {
+  padding: 2%;
 }
+
+.runStatusTable {
+  margin: auto;
+  width: 70%;
+  padding: 2% 0;
+  text-align: center;
+}
+
+/* .resultTableRow th {
+  width: 1%;
+} */

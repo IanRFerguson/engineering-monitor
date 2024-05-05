@@ -16,8 +16,8 @@ function App() {
       <div class="tmc_container">
         < SuccessChart />
       </div>
-      
-      {/* Show success rate over time */}
+
+      {/* Current sync status in table format */}
       <div class="tmc_container">
         < Table />
       </div>

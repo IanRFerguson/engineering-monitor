@@ -25,6 +25,14 @@ def serve():
     return render_template("index.html")
 
 
+@api.route("/get_metadata")
+def get_metadata():
+    METADATA = os.path.join(HERE, "sql/workflow_metadata.sql")
+    resp = run_sql(file_path=METADATA, kbq=BIGQUERY_OBJECT)
+
+    return jsonify(resp.to_dicts())
+
+
 @api.route("/current_status")
 def current_status():
     CURRENT_STATUS = os.path.join(HERE, "sql/workflows_current_status.sql")
@@ -33,9 +41,9 @@ def current_status():
     return jsonify(resp.to_dicts())
 
 
-@api.route("/get_metadata")
-def get_metadata():
-    METADATA = os.path.join(HERE, "sql/workflow_metadata.sql")
-    resp = run_sql(file_path=METADATA, kbq=BIGQUERY_OBJECT)
+@api.route("/daily_average")
+def daily_average():
+    DAILY_AVERAGE = os.path.join(HERE, "sql/workflows_average_per_day.sql")
+    resp = run_sql(file_path=DAILY_AVERAGE, kbq=BIGQUERY_OBJECT)
 
     return jsonify(resp.to_dicts())

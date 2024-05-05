@@ -13,4 +13,11 @@ export GOOGLE_APPLICATION_CREDENTIALS="/app/service_accounts/{{ service account 
 
 ```
 deploy/run.sh
+
+# Breaking this out...
+# Build the React app
+cd frontend && npm build && cd ..
+
+# Run the Docker container
+docker compose up
 ```

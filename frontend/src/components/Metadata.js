@@ -13,8 +13,6 @@ function Metadata() {
         }, []
     )
 
-    console.log(meta)
-
     return(
         <div>
             <h4>Over the last seven days we are averaging a <b>{meta.success_rate}% success rate</b></h4>

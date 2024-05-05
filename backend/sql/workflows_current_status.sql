@@ -49,7 +49,7 @@ WITH
 SELECT 
   
   parent_workflow_id,
-  parent_workflow_name,
+  REPLACE(parent_workflow_name, '[PROD] -', '') AS parent_workflow_name,
   status,
   last_monitored,
   failed_tasks

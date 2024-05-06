@@ -57,3 +57,4 @@ SELECT
 FROM current_status
 LEFT JOIN task_status
 	USING(parent_workflow_id, parent_workflow_name)
+ORDER BY status
